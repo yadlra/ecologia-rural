@@ -16,7 +16,7 @@ def setup():
 
 def distance():
    GPIO.output(TRIG, 0)
-   time.setup(0.000002)
+   time.sleep(0.000002)
 
    GPIO.output(TRIG, 1)
    GPIO.sleep(0.00001)
