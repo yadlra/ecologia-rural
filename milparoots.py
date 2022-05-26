@@ -1,10 +1,49 @@
+from tkinter import W
 from flask import Flask # include the flask library 
-
+import time
+import RPi.GPIO as GPIO
+from datetime import datetime 
+s
 app = Flask(__name__) 
+
+def setup():
+   GPIO.setmode(GPIO.BOARD)
+   GPIO.setup(TIRG, GPIO.OUT)
+   GPIO.setup(ECHO, GPIO.IN)
+
+def distance():
+   GPIO.output(TIG, 0)
+   time.setup(0.000002)
+
+   GPIO.output(TRIG, 1)
+   GPIO.sleep(0.00001)
+   GPIO.output(TRIG, 0)
+
+   while GPIO.input(ECHO) == 0:
+     a = 0
+   time1 = time.time()
+      
+   while GPIO.input(ECHO) == 1:
+     a = 1
+   time2 = time.time()
+
+   during = time2 - time1
+   return during * 340 / 2 * 100
+
 
 @app.route("/") 
 def index(): 
-   return "🌱, plants" 
+   setup()
+   dist = distance()
+
+   dist_round = round(dist)
+   
+   return render_template("index.html", dist_round = dist_round)
+   # "🌱, plants" 
+
+
+
+
   
 
 if __name__ == '__main__': 
