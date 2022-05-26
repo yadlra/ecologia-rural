@@ -2,7 +2,7 @@
 from flask import Flask 
 import time
 import RPi.GPIO as GPIO
-# from datetime import time
+from datetime import time
 
 app = Flask(__name__) 
 
@@ -23,11 +23,11 @@ def distance():
    GPIO.output(TRIG, 0)
 
    while GPIO.input(ECHO) == 0:
-     a = 0
+         a = 0
    time1 = time.time()
       
    while GPIO.input(ECHO) == 1:
-     a = 1
+         a = 1
    time2 = time.time()
 
    during = time2 - time1
