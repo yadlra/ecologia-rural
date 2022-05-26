@@ -6,6 +6,9 @@ from datetime import datetime
 
 app = Flask(__name__) 
 
+TRIG = 11
+ECHO = 10
+
 def setup():
    GPIO.setmode(GPIO.BOARD)
    GPIO.setup(TRIG, GPIO.OUT)
