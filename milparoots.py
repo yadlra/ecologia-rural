@@ -1,53 +1,49 @@
-from flask import Flask, render_template
+import time
+from flask import *
 import RPi.GPIO as GPIO
-import Adafruit_DHT as dht
- 
-app = Flask(__name__)
- 
-GPIO.setmode(GPIO.BCM)
-led1 = 21 
-led2 = 20
-DHT11_pin = 23
- 
-# Set each pin as an output and make it low:
-GPIO.setup(led1, GPIO.OUT)
-GPIO.setup(led2, GPIO.OUT)
- 
-@app.route("/")
- 
-def main():
-   return render_template('index.html')
- 
-# The function below is executed when someone requests a URL with the pin number and action in it:
-@app.route("/<pin>/<action>")
-def action(pin, action):
-   temperature = ''
-   humidity = ''
-   if pin == "pin1" and action == "on":
-      GPIO.output(led1, GPIO.HIGH)
-    
-   if pin == "pin1" and action == "off":
-      GPIO.output(led1, GPIO.LOW)
-    
-   if pin == "pin2" and action == "on":
-      GPIO.output(led2, GPIO.HIGH)
-    
-   if pin == "pin2" and action == "off":
-      GPIO.output(led2, GPIO.LOW)
- 
-   if pin == "dhtpin" and action == "get":
-      humi, temp = dht.read_retry(dht.DHT11, DHT11_pin)  # Reading humidity and temperature
-      humi = '{0:0.1f}' .format(humi)
-      temp = '{0:0.1f}' .format(temp)
-      temperature = 'Temperature: ' + temp 
-      humidity =  'Humidity: ' + humi
- 
-   templateData = {
-   'temperature' : temperature,
-   'humidity' : humidity
-   }
- 
-   return render_template('index.html', **templateData)
- 
-if __name__ == "__index__":
-   app.run(host='0.0.0.0', port=5000, debug=True) # application will start listening for web request on port 5000
+from datetime import datetime
+from time import sleep
+
+app = Flask(__name__) 
+
+TRIG = 11
+ECHO = 10
+
+def setup():
+   GPIO.setmode(GPIO.BOARD)
+   GPIO.setup(TRIG, GPIO.OUT)
+   GPIO.setup(ECHO, GPIO.IN)
+
+def distance():
+   GPIO.output(TRIG, 0)
+   time.sleep(0.000002)
+
+   GPIO.output(TRIG, 1)
+   GPIO.sleep(0.00001)
+   GPIO.output(TRIG, 0)
+
+   while GPIO.input(ECHO) == 0:
+         a = 0
+   time1 = time.time()
+      
+   while GPIO.input(ECHO) == 1:
+         a = 1
+   time2 = time.time()
+
+   during = time2 - time1
+   return during * 340 / 2 * 100
+
+
+@app.route("/") 
+def index(): 
+   setup()
+   dist = distance()
+   dist_round = round(dist)
+   
+   return render_template("index.html", dist_round = dist_round)
+   # "🌱, plants" 
+
+  
+
+if __name__ == '__main__': 
+   app.run(port=5000, host='0.0.0.0', debug=True) # application will start listening for web request on port 5000
