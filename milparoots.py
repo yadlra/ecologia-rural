@@ -1,8 +1,8 @@
 # from tkinter import W
-from flask import Flask # include the flask library 
+from flask import Flask 
 import time
 import RPi.GPIO as GPIO
-from datetime import datetime 
+from datetime import date, datetime
 
 app = Flask(__name__) 
 
@@ -23,7 +23,7 @@ def distance():
    GPIO.output(TRIG, 0)
 
    while GPIO.input(ECHO) == 0:
-     a = 0
+    a = 0
    time1 = time.time()
       
    while GPIO.input(ECHO) == 1:
