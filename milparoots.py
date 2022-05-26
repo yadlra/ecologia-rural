@@ -50,4 +50,4 @@ def action(pin, action):
    return render_template('index.html', **templateData)
  
 if __name__ == "__index__":
-   app.run(host='0.0.0.0', port=80, debug=True) # application will start listening for web request on port 5000
+   app.run(host='0.0.0.0', port=5000, debug=True) # application will start listening for web request on port 5000
