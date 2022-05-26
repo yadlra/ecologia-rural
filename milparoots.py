@@ -3,16 +3,16 @@ from flask import Flask # include the flask library
 import time
 import RPi.GPIO as GPIO
 from datetime import datetime 
-s
+
 app = Flask(__name__) 
 
 def setup():
    GPIO.setmode(GPIO.BOARD)
-   GPIO.setup(TIRG, GPIO.OUT)
+   GPIO.setup(TRIG, GPIO.OUT)
    GPIO.setup(ECHO, GPIO.IN)
 
 def distance():
-   GPIO.output(TIG, 0)
+   GPIO.output(TRIG, 0)
    time.setup(0.000002)
 
    GPIO.output(TRIG, 1)
@@ -35,14 +35,10 @@ def distance():
 def index(): 
    setup()
    dist = distance()
-
    dist_round = round(dist)
    
    return render_template("index.html", dist_round = dist_round)
    # "🌱, plants" 
-
-
-
 
   
 
