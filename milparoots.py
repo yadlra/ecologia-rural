@@ -1,4 +1,4 @@
-from tkinter import W
+# from tkinter import W
 from flask import Flask # include the flask library 
 import time
 import RPi.GPIO as GPIO
