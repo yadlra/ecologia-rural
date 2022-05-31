@@ -5,7 +5,7 @@ import water
 
 app = Flask(__name__)
 
-def template(title = "HELLO!", text = "EARTHLINGS"):
+def template(title = "HELLO EARTHLINGS!", text = ""):
     now = datetime.datetime.now()
     timeString = now
     templateDate = {
