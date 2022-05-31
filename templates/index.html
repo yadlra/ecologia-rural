@@ -1,5 +1,13 @@
-<div>
-    <h1>{{ dist_round }}</h1>
-    <h1>PLANTS!</h1><br>
-    <p>This site has been visited {{ count }} times.</p>
-</div>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Climate justice {% endblock %}</h1>
+    {% for message in messages %}
+        <div class='message'>
+            <h3>{{ message['title'] }}</h3>
+            <p>{{ message['content'] }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+

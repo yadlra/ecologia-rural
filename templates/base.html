@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - WHY</title>
+
+
+
+    <style>
+        .message {
+            color: #f318d2;
+            font-size: 2em;
+            padding: 10px;
+            margin: 10px;
+            background-color: #2124e2
+        }
+        nav a {
+            color: #33ff33;
+            font-size: 8em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">WHY</a>
+        <a href="#">this space?</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} 
+        <a href="{{ url_for(['title'])}}">WHY</a>
+        {% endblock %}
+    </div>
+</body>
+</html>
