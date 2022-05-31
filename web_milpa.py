@@ -24,7 +24,7 @@ def hello():
 @app.route("/sensor")
 def action():
     status = water.get_status()
-    message = "status "+status
+    message = status
     if (status == 1):
         message = "Water me please!"
     else:
