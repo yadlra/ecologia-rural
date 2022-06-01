@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
-import datetime
 import serial
 import struct
 import time
@@ -8,14 +7,26 @@ import time
 async_mode = None
 app = Flask(__name__)
 socket_ = SocketIO(app, async_mode=async_mode)
+thread = None
+thread_lock = Lock()
+message = "Waiting for data"
+status = -1.0
 
+with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
+    time.sleep(0.1)
+    if arduino.isOpen():
+        print("{} connected!".format(arduino.port))
+        try:
+            while True:
+                val = arduino.readline()
+                print(val)
+                arduino.flushInput()
+                status = struct.unpack('<f', val)
+                message = compare(status)
 
 def template(title = "HELLO!", text = ""):
-    now = datetime.datetime.now()
-    timeString = now
     templateDate = {
         'title' : title,
-        'time' : timeString,
         'text' : text
         }
     return templateDate
@@ -36,38 +47,14 @@ def compare(s):
         else:
             print(s)
             m = "> 700"
+    return m
     
-    
-
 @app.route("/")
 def index():
-    # templateData = template()
-    # return render_template('main.html', **templateData)
-    
-    message = "unknown"
-    status = -1.0
-
-    with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
-        time.sleep(0.1)
-        if arduino.isOpen():
-            print("{} connected!".format(arduino.port))
-            try:
-                while True:
-                    val = arduino.readline()
-                    print(val)
-                    arduino.flushInput()
-                    status = struct.unpack('<f', val)
-                    message = compare(status)
-                    
-                    return render_template('index.html',
-                           sync_mode=socket_.async_mode)
-
-    
-
+    templateData = template()
     templateData = template(text = message)
     # return render_template('main.html', **templateData)
-
-    
+    return render_template('index.html', **templateData, sync_mode=socket_.async_mode)
 
 if __name__ == "__main__":
     socket_.run(app, host='0.0.0.0', debug=True)
