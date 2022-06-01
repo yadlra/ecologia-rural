@@ -25,7 +25,7 @@ def readSerial():
                     status = struct.unpack('<f', val)
                     message = compare(status)
 
-def template(title = "HELLO!", text = ""):
+def template(title="HELLO!", text=""):
     templateDate = {
         'title' : title,
         'text' : text
