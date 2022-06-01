@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 import datetime
-import water
-
+import serial
+import struct
+import time
 
 app = Flask(__name__)
 
@@ -23,12 +24,38 @@ def hello():
 
 @app.route("/sensor")
 def action():
-    status = water.get_status()
-    message = status
-    # if (status == 1):
-    #     # message = "Water me please!"
-    # else:
-    #     # message = "I'm a happy plant"
+    message = "unknown"
+    status = -1.0
+
+    with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
+        time.sleep(0.1)
+        if arduino.isOpen():
+            print("{} connected!".format(arduino.port))
+            try:
+                while True:
+                    val = arduino.readline()
+                    print(val)
+                    arduino.flushInput()
+                    status = struct.unpack('<f', val)
+            except:
+                status = -1.0
+
+    if status > -1.0:
+        if status < 200:
+            message = "200"
+        elif status < 300:
+            message = "300"
+        elif status < 500:
+            print(status)
+            message = "500"
+        elif status < 700:
+            print(status)
+            message = "700"
+        else:
+            print(status)
+            message = "> 700"
+    else:
+        message = "There was an error"
 
     templateData = template(text = message)
     return render_template('main.html', **templateData)
