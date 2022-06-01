@@ -3,6 +3,7 @@ from flask_socketio import SocketIO
 import serial
 import struct
 import time
+from threading import Lock
 
 async_mode = None
 app = Flask(__name__)
