@@ -55,7 +55,7 @@ def readSerial():
             print(val)
             arduino.flushInput()
             status = struct.unpack('<f', val)
-            message = compare(status)
+            message = compare(float(status.decode()))
             emit('sensorData', { data: message })
 
 if __name__ == "__main__":
