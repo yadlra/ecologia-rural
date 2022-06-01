@@ -51,12 +51,13 @@ def readSerial():
         time.sleep(0.1)
         if arduino.isOpen():
             print("{} connected!".format(arduino.port))
-            val = arduino.readline()
-            print(val)
-            arduino.flushInput()
-            status = struct.unpack('<f', float(val.decoce()))
-            message = compare(status)
-            emit('sensorData', { data: message })
+            incoming = arduino.readline().decode('ascii').strip()
+            if not incoming is "":
+            	print(incoming)
+            	arduino.flushInput()
+            	status = float(incoming)
+            	message = compare(status)
+            	socket_.emit('sensorData', { "data": message })
 
 if __name__ == "__main__":
     readSerial()
