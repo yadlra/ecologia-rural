@@ -12,22 +12,37 @@
 
             namespace = '/sensor';
             var socket = io(namespace);
+            var interval;
 
             socket.on('connect', function() {
-                socket.emit('readSensor');
+                socket.emit('openSerial');
+                
+                socket.on('serialOpen', function() {
+                    console.log('serialOpen caught');
+                    interval = setInterval(function () { socket.emit('readSensor') }, 1000);
+                });
+
+                socket.on('sensorData', function(msg) {
+                    console.log('msg', msg);
+                    $('#log').append('<br>' + $('<div/>').text('sensor val' + msg.data).html());
+                });
+	    });
+
+	    socket.on('serialOpen', function() {
+                console.log('serialOpen caught');
+                interval = setInterval(function () { socket.emit('readSensor') }, 1000);
             });
 
             socket.on('sensorData', function(msg) {
+		console.log('msg', msg);
                 $('#log').append('<br>' + $('<div/>').text('sensor val' + msg.data).html());
             });
         });
     </script>
 </head>
 <body style="text-align:center">
-    <h1>SOIL COMMS 🌱📟</h1>
-    <h2>The date and time on the server is: {{ time }}</h2>
-  
-    <div id="log"></div>
+    <h1>SOIL COMMS 🌱📟</h1>  
+    <div id="log">Waiting for data...</div>
 </body>
 </html>
 

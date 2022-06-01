@@ -3,7 +3,7 @@ body            {
     background: rgb(15, 15, 15); 
 }
 
-a, h1, h2       { 
+a, h1, h2, #log { 
     color: #0ef02c; 
 }
 
