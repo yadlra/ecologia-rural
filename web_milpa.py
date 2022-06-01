@@ -58,15 +58,6 @@ def readSerial():
                 message = compare(status)
                 emit('sensorData', { data: message })
 
-                # while True:
-                #     val = arduino.readline()
-                #     print(val)
-                #     arduino.flushInput()
-                #     status = struct.unpack('<f', val)
-                #     message = compare(status)
-
-
 if __name__ == "__main__":
     readSerial()
     socket_.run(app, host='0.0.0.0', debug=True)
-
