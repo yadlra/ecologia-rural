@@ -1,10 +1,10 @@
 body            { 
     font-family: sans-serif; 
-    background: rgb(241, 9, 183); 
+    background: rgb(15, 15, 15); 
 }
 
 a, h1, h2       { 
-    color: #0b0b0b; 
+    color: #0ef02c; 
 }
 
 h1, h2          { 
@@ -17,5 +17,5 @@ h1              {
 
 h3              { 
     font-size: 1.7em; 
-    color: #0c17ef;
+    color: #ef0cd1;
 }
