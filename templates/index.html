@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <link rel="stylesheet" href='/static/style.css' />
+    <script src="jquery.js"></script>
+    <script src="socket.io.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+
+            namespace = '/sensor';
+            var socket = io(namespace);
+
+            socket.on('connect', function() {
+                socket.emit('readSensor');
+            });
+
+            socket.on('sensorData', function(msg) {
+                $('#log').append('<br>' + $('<div/>').text('sensor val' + msg.data).html());
+            });
+        });
+    </script>
 </head>
 <body style="text-align:center">
     <h1>SOIL COMMS 🌱📟</h1>
     <h2>The date and time on the server is: {{ time }}</h2>
   
-    <h2> {{ text }} </h2>
+    <div id="log"></div>
 </body>
 </html>
 
