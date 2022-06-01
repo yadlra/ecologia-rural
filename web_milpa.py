@@ -12,19 +12,6 @@ thread_lock = Lock()
 message = "Waiting for data"
 status = -1.0
 
-def readSerial():
-    with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
-        time.sleep(0.1)
-        if arduino.isOpen():
-            print("{} connected!".format(arduino.port))
-            try:
-                while True:
-                    val = arduino.readline()
-                    print(val)
-                    arduino.flushInput()
-                    status = struct.unpack('<f', val)
-                    message = compare(status)
-
 def template(title="HELLO!", text=""):
     templateDate = {
         'title' : title,
@@ -56,7 +43,21 @@ def index():
     # return render_template('main.html', **templateData)
     return render_template('index.html', **templateData, sync_mode=socket_.async_mode)
 
+# def readSerial():
+#     with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
+#         time.sleep(0.1)
+#         if arduino.isOpen():
+#             print("{} connected!".format(arduino.port))
+#             try:
+#                 while True:
+#                     val = arduino.readline()
+#                     print(val)
+#                     arduino.flushInput()
+#                     status = struct.unpack('<f', val)
+#                     message = compare(status)
+
+
 if __name__ == "__main__":
-    readSerial()
+    # readSerial()
     socket_.run(app, host='0.0.0.0', debug=True)
 
