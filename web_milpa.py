@@ -50,14 +50,15 @@ def readSerial():
         time.sleep(0.1)
         if arduino.isOpen():
             print("{} connected!".format(arduino.port))
-            try:
-                val = arduino.readline()
-                print(val)
-                arduino.flushInput()
-                status = struct.unpack('<f', val)
-                message = compare(status)
-                emit('sensorData', { data: message })
 
 if __name__ == "__main__":
     readSerial()
     socket_.run(app, host='0.0.0.0', debug=True)
+
+    # try:
+    #             val = arduino.readline()
+    #             print(val)
+    #             arduino.flushInput()
+    #             status = struct.unpack('<f', val)
+    #             message = compare(status)
+    #             emit('sensorData', { data: message })
