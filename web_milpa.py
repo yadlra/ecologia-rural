@@ -1,10 +1,14 @@
 from flask import Flask, render_template
+from flask_socketio import SocketIO
 import datetime
 import serial
 import struct
 import time
 
+async_mode = None
 app = Flask(__name__)
+socket_ = SocketIO(app, async_mode=async_mode)
+
 
 def template(title = "HELLO!", text = ""):
     now = datetime.datetime.now()
@@ -15,6 +19,7 @@ def template(title = "HELLO!", text = ""):
         'text' : text
         }
     return templateDate
+    
 
 @app.route("/")
 def hello():
