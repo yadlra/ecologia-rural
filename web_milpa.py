@@ -24,7 +24,9 @@ def template(title = "HELLO!", text = ""):
 @app.route("/")
 def hello():
     templateData = template()
-    return render_template('main.html', **templateData)
+    # return render_template('main.html', **templateData)
+    return render_template('index.html',
+                           sync_mode=socket_.async_mode)
 
 
 @app.route("/sensor")
@@ -63,7 +65,10 @@ def action():
         message = "There was an error"
 
     templateData = template(text = message)
-    return render_template('main.html', **templateData)
+    # return render_template('main.html', **templateData)
+    return render_template('index.html',
+                           sync_mode=socket_.async_mode)
 
 if __name__ == "__main__":
+    socket_.run(app, debug=True)
     app.run(port=5000, host='0.0.0.0', debug=True)
