@@ -21,8 +21,9 @@ def template(title="HELLO!", text=""):
     return templateDate
 
 def compare(s):
+    print(s)
     m = "there was an error"
-    if s > -1.0:
+    if s > -1.0:  
         if s < 200:
             m = "200"
         elif s < 300:
