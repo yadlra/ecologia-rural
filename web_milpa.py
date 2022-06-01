@@ -64,6 +64,9 @@ def readSerial():
                 #     arduino.flushInput()
                 #     status = struct.unpack('<f', val)
                 #     message = compare(status)
+        else:
+            print('arduino was closed')
+    
 
 if __name__ == "__main__":
     readSerial()
