@@ -13,36 +13,30 @@
             namespace = '/sensor';
             var socket = io(namespace);
             var interval;
+	    var iframeSrc = ""
 
             socket.on('connect', function() {
                 socket.emit('openSerial');
-                
-                socket.on('serialOpen', function() {
-                    console.log('serialOpen caught');
-                    interval = setInterval(function () { socket.emit('readSensor') }, 1000);
-                });
-
-                socket.on('sensorData', function(msg) {
-                    console.log('msg', msg);
-                    $('#log').append('<br>' + $('<div/>').text('sensor val' + msg.data).html());
-                });
 	    });
-
 	    socket.on('serialOpen', function() {
-                console.log('serialOpen caught');
+            	console.log('serialOpen caught');
                 interval = setInterval(function () { socket.emit('readSensor') }, 1000);
             });
 
             socket.on('sensorData', function(msg) {
-		console.log('msg', msg);
-                $('#log').append('<br>' + $('<div/>').text('sensor val' + msg.data).html());
+            	console.log('msg', msg.data);
+		iframeSrc = $('#url').attr('src');
+		
+		if (iframeSrc != msg.data) {
+               	     $('#url').attr("src", msg.data)
+		}
             });
-        });
+	});
     </script>
 </head>
 <body style="text-align:center">
     <h1>SOIL COMMS 🌱📟</h1>  
-    <div id="log">Waiting for data...</div>
+    <iframe id="url" width="100%" height="100%" src="" /> 
 </body>
 </html>
 
