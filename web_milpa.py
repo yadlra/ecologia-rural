@@ -24,13 +24,13 @@ def compare(s):
     m = "https://blank.com"
     if s > -1.0:
         if s < 200:
-            m = "https://www.google.com/"
+            m = "https://www.intersectionalenvironmentalist.com/"
         elif s < 300:
-            m = "https://www.twitter.com"
+            m = "https://www.youtube.com/watch?v=ZGEKAWBu2do"
         elif s < 500:
-            m = "https://chootka.com"
-        elif s < 700:
-            m = "https://weise7.org"
+            m = "hhttps://restofworld.org/2020/saving-the-world-through-tequiology/"
+        elif s < 600:
+            m = "https://atmos.earth/nina-gualinga-indigenous-voices-are-still-not-heard/"
         else:
             m = "https://conrad.de"
     return m
