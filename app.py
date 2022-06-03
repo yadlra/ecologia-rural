@@ -26,7 +26,7 @@ def compare(s):
         if s < 200:
             m = "https://intersectionalenvironmentalist.com/"
         elif s < 300:
-            m = "https://youtube.com/watch?v=ZGEKAWBu2do"
+            m = "https://futurosindigenas.org/lafiestaesresistencia/"
         elif s < 500:
             m = "https://restofworld.org/2020/saving-the-world-through-tequiology/"
         elif s < 600:
