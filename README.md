@@ -1,4 +1,4 @@
-##From Forced Disconnection to Mutual Reconnection
+## From Forced Disconnection to Mutual Reconnection
 
 A soil story about milpa ecology, technology and intelligence…
 The land is a source of identity. 
