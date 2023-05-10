@@ -1,7 +1,9 @@
 
 ## From Forced Disconnection to Mutual Reconnection
 
-A soil story about milpa ecology, technology and intelligence…
+*This is an artistic intervention aided by software and hardware and it is not defined by functionality but the creative engagement of its parts*
+
+This is soil story about milpa ecology, technology and ways of knowing.
 
 The land is a source of identity. 
 Land is the solid surface of the Earth.
@@ -10,9 +12,7 @@ Ancestral knowledge, languages, cultural practices and oral traditions built up 
 
 The connection to the land has been disrupted through policies of colonization, assimilation, and genocide. Forced disconnection from the land has caused spiritual, emotional, physical, and mental damage to many beings on Earth.
 
-Are we prepared to re-evaluate our relationship with the many life forms with whom we share the planet?
-
-… drawing on Indigenous and rural ways of knowing that have long recognized the significance of non-human modes of being . . .this interaction is trying to synthesise ways of communication with the soil; the soil that reaps our food systems and the urgent need to do so given the reality of looming ecological collapse . . .
+Drawing on Indigenous and rural ways of knowing that have long recognized the significance of non-human modes of being . . .this interaction is trying to synthesise ways of communication with the soil; the soil that reaps our food systems and the urgent need to do so given the reality of looming ecological collapse.
 
 
 
