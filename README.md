@@ -1,9 +1,9 @@
 
 ## From Forced Disconnection to Mutual Reconnection
 
-*This is an artistic intervention aided by software and hardware and it is not defined by functionality but the creative engagement of its parts*
+*This is an artistic intervention aided by software and hardware and it is not defined by functionality but the creative engagement of its parts.*
 
-This is soil story about milpa ecology, technology and ways of knowing.
+This is **soil story** about milpa ecology, technology and ways of knowing.
 
 The land is a source of identity. 
 Land is the solid surface of the Earth.
@@ -36,7 +36,7 @@ Drawing on Indigenous and rural ways of knowing that have long recognized the si
 
 ## Usage
 
-**The guide to make the installation are  under construction at the moment.
+**The guide to make the installation is under construction at the moment.**
 
 ## Contributing
 
