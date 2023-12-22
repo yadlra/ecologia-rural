@@ -1,5 +1,5 @@
 
-## From Forced Disconnection to Mutual Reconnection
+## Rural Technological Ecologies
 
 *This is an artistic intervention aided by software and hardware and it is not defined by functionality but the creative engagement of its parts.*
 
@@ -38,9 +38,9 @@ Drawing on Indigenous and rural ways of knowing that have long recognized the si
 
 **The guide to make the installation is under construction at the moment.**
 
-## Contributing
+## License
 
-------
+ Rural Technological Ecologies © 2022 by Yadira Sanchez is licensed under CC BY-NC 4.0 
 
 
 
