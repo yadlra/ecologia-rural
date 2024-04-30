@@ -1,0 +1,33 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Rural Technological Ecologies
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Yadira
+    family-names: Sanchez
+    email: yadirasanchez@riseup.net
+    affiliation: University of Southampton
+    orcid: 'https://orcid.org/0000-0003-0998-3325'
+repository-code: 'https://github.com/yadlra/ecologia-rural'
+url: 'https://maquinaspluriversales.xyz/'
+abstract: >
+  A mini ecological artistic network,  showing the
+  interconnectedness among planetary beings, highlighting
+  the symbiotic relationship between what we call natural
+  and artificial systems. 
+
+  At the core of this network is a moisture sensor that acts
+  as a conduit between the soil and digital spaces. After
+  receiving signals, the sensor sends signals to the
+  computer, which then triggers specific content on a
+  webpage called Soil Comms. The content displayed is
+  dependent on the moisture level detected, creating a
+  direct, responsive link between the environment and
+  digital output.
+keywords:
+  - 'ecology, networks, art'
