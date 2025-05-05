@@ -1,6 +1,9 @@
 
 ## Rural Technological Ecologies
 
+![cultivating tech-ecologies](tech-ecologies.jpg)
+
+
 *This is an artistic intervention aided by software and hardware and it is not defined by functionality but the creative engagement of its parts.*
 
 This is **soil story** about milpa ecology, technology and ways of knowing.
